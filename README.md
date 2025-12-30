@@ -53,5 +53,5 @@ Data Structures with C++
 ```
 
 ```bash
-git clone https://github.com/xiaoze-xiaoze/Data-Structures-with-cpp.git
+git clone https://github.com/xiaoze-xiaoze/Data_Structures_with_cpp.git
 ```
