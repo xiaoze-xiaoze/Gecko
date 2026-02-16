@@ -1,7 +1,7 @@
-#include "../error/error.hpp"
+#include "../Error/Error.hpp"
 
 template<typename T>
-class LinkList {
+class CircularLinkList {
 public:
     struct Node {
         T data;
@@ -11,11 +11,16 @@ public:
 
 protected:
     Node* head;
+    Node* tail;
 
-public:
-    LinkList(): length(0) { head = new Node{ T(), nullptr }; }
+public: 
+    CircularLinkList(): length(0) {
+        head = new Node{ T(), nullptr };
+        head->next = head;
+        tail = head;
+    }
 
-    ~LinkList() {
+    ~CircularLinkList() {
         clear();
         delete head;
     }
@@ -30,6 +35,10 @@ public:
         for (int i = 0;i < index;i++) prevNode = prevNode->next;
         Node* newNode = new Node{ value, prevNode->next };
         prevNode->next = newNode;
+        if (index == length) {
+            tail = newNode;
+            tail->next = head;
+        }
         length++;
         return {};
     }
@@ -50,6 +59,10 @@ public:
         prevNode->next = deleteNode->next;
         T value = deleteNode->data;
         delete deleteNode;
+        if (index == length - 1) {
+            tail = prevNode;
+            tail->next = head;
+        }
         length--;
         return value;
     }
@@ -69,6 +82,10 @@ public:
                 Node* deleteNode = prevNode->next;
                 prevNode->next = deleteNode->next;
                 delete deleteNode;
+                if (i == length - 1) {
+                    tail = prevNode;
+                    tail->next = head;
+                }
                 length--;
                 return {};
             }
@@ -109,7 +126,8 @@ public:
             node = node->next;
             delete deleteNode;
         }
-        head->next = nullptr;
+        head->next = head;
+        tail = head;
         length = 0;
     }
 };

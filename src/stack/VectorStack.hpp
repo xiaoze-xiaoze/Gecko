@@ -1,14 +1,15 @@
-#include <list>
-#include "../error/error.hpp"
+#include <vector>
+#include "../Error/Error.hpp"
 
 template<typename T>
-class ListStack {
+class VectorStack {
 public:
-    std::list<T> data;
+    std::vector<T> data;
 
-    ListStack() = default;
+    VectorStack() = default;
+    explicit VectorStack(int capacity) { data.reserve(capacity); }
 
-    ~ListStack() = default;
+    ~VectorStack() = default;
 
     bool isEmpty() const { return data.empty(); }
 
@@ -29,8 +30,8 @@ public:
         data.pop_back();
         return value;
     }
-
-     void clear() {
+    
+    void clear() {
         data.clear();
     }
 };

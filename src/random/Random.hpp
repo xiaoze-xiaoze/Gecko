@@ -4,7 +4,7 @@
 #include <random>
 #include <chrono>
 #include <expected>
-#include "../error/error.hpp"
+#include "../Error/Error.hpp"
 
 inline std::expected<int, DataStructureError> rand_int(int min, int max) {
     if (min > max) return std::unexpected(DataStructureError::InvalidArgument);

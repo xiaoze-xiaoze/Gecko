@@ -1,4 +1,4 @@
-#include "binary_search_tree.hpp"
+#include "BinarySearchTree.hpp"
 
 template<typename T>
 class AVLTree : public BinarySearchTree<T> {

@@ -8,7 +8,7 @@
 #include <optional>
 #include <algorithm>
 #include "../set/union_find_set.hpp"
-#include "../error/error.hpp"
+#include "../Error/Error.hpp"
 template<typename V, typename E>
 class AdjacencyMatrixGraph {
 public:
