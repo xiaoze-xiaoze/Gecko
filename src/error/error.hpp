@@ -22,7 +22,7 @@ enum class DataStructureError {
     RandomGenerationFailed,
 };
 
-std::string error_message(DataStructureError error) {
+inline std::string error_message(DataStructureError error) {
     switch (error) {
         case DataStructureError::IndexOutOfRange: return "Index out of range";
         case DataStructureError::ContainerIsEmpty: return "Container is empty";

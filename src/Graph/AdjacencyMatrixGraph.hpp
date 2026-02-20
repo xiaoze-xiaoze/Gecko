@@ -7,7 +7,7 @@
 #include <numeric>
 #include <optional>
 #include <algorithm>
-#include "../set/union_find_set.hpp"
+#include "../Set/UnionFindSet.hpp"
 #include "../Error/Error.hpp"
 template<typename V, typename E>
 class AdjacencyMatrixGraph {

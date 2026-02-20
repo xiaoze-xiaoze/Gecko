@@ -1,3 +1,4 @@
+#pragma once
 #include "BinarySearchTree.hpp"
 
 template<typename T>

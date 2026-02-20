@@ -4,8 +4,8 @@ project(ds_demo LANGUAGES CXX)
 # MSVC 用最新标准，其余统一 C++23
 if(MSVC)
     set(CMAKE_CXX_STANDARD 23)
-    set(CMAKE_STANDARD_REQUIRED ON)
-    add_compile_options(/std:c++23preview)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+    add_compile_options(/std:c++latest)
 else()
     set(CMAKE_CXX_STANDARD 23)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -18,7 +18,9 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # 主程序
 file(GLOB_RECURSE SRC_LIST "${CMAKE_SOURCE_DIR}/src/*.cpp")
-add_executable(ds_main ${SRC_LIST})
+set(SRC_LIST_NO_MAIN ${SRC_LIST})
+list(FILTER SRC_LIST_NO_MAIN EXCLUDE REGEX ".*/main\\.cpp$")
+add_executable(ds_main "${CMAKE_SOURCE_DIR}/src/main.cpp" ${SRC_LIST_NO_MAIN})
 target_include_directories(ds_main PRIVATE
     ${CMAKE_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/src
