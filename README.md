@@ -21,20 +21,52 @@ Gecko is an educational data structure library written in modern C++23. It aims 
 
 ### Project Structure
 
-The library is organized into the following modules in the `src` directory:
-
-- **LinearList**: `LinkedList`, `DoubleLinkedList`, `CircularLinkedList`, `SequentialList`, `StaticLinkedList`.
-- **Stack**: `ListStack`, `VectorStack`.
-- **Queue**: `CircularQueue`, `ListQueue`, `ListDequeue`, `CircularDequeue`.
-- **Tree**: `BinaryTree`, `BinarySearchTree`, `AVLTree`, `RedBlackTree`.
-- **Graph**: `AdjacencyMatrixGraph`.
-- **Set**: `UnionFindSet`.
-- **SortingAlgorithms**: Various sorting implementations.
-- **SelectionAlgorithms**: Selection algorithms.
-- **Hash**: Hash data structures.
-- **Heap**: Heap data structures.
-- **Random**: Random number utilities.
-- **String**: String algorithms.
+```
+Gecko
+├── CMakeLists.txt
+├── README.md
+├── src
+│   ├── Error
+│   │   └── Error.hpp
+│   ├── Graph
+│   │   └── AdjacencyMatrixGraph.hpp
+│   ├── Hash
+│   │   └── Hash.hpp
+│   ├── Heap
+│   │   └── Heap.hpp
+│   ├── LinearList
+│   │   ├── CircularDoubleLinkedList.hpp
+│   │   ├── CircularLinkedList.hpp
+│   │   ├── DoubleLinkedList.hpp
+│   │   ├── LinkedList.hpp
+│   │   ├── SequentialList.hpp
+│   │   └── StaticLinkedList.hpp
+│   ├── Queue
+│   │   ├── CircularDequeue.hpp
+│   │   ├── CircularQueue.hpp
+│   │   ├── ListDequeue.hpp
+│   │   └── ListQueue.hpp
+│   ├── Random
+│   │   └── Random.hpp
+│   ├── SelectionAlgorithms
+│   │   └── Selection.hpp
+│   ├── Set
+│   │   └── UnionFindSet.hpp
+│   ├── SortingAlgorithms
+│   │   └── Sorting.hpp
+│   ├── Stack
+│   │   ├── ListStack.hpp
+│   │   └── VectorStack.hpp
+│   ├── String
+│   │   └── String.hpp
+│   ├── Tree
+│   │   ├── AVLTree.hpp
+│   │   ├── BinarySearchTree.hpp
+│   │   ├── BinaryTree.hpp
+│   │   └── RedBlackTree.hpp
+│   └── main.cpp
+└── build/
+```
 
 ### Usage
 
@@ -97,20 +129,52 @@ Gecko 是一个使用现代 C++23 编写的教学用数据结构库。它的目�
 
 ### 项目结构
 
-本项目包含以下模块 (位于 `src` 目录下)：
-
-- **线性表 (LinearList)**: 单链表、双向链表、循环链表、顺序表、静态链表。
-- **栈 (Stack)**: 链栈、顺序栈。
-- **队列 (Queue)**: 循环队列、链队、双端队列、循环双端队列。
-- **树 (Tree)**: 二叉树、二叉搜索树、AVL树、红黑树。
-- **图 (Graph)**: 邻接矩阵图。
-- **集合 (Set)**: 并查集。
-- **排序 (SortingAlgorithms)**: 各种排序算法实现。
-- **选择 (SelectionAlgorithms)**: 选择算法。
-- **哈希 (Hash)**: 哈希相关数据结构。
-- **堆 (Heap)**: 堆数据结构。
-- **随机 (Random)**: 随机数工具。
-- **字符串 (String)**: 字符串算法。
+```
+Gecko
+├── CMakeLists.txt
+├── README.md
+├── src
+│   ├── Error
+│   │   └── Error.hpp
+│   ├── Graph
+│   │   └── AdjacencyMatrixGraph.hpp
+│   ├── Hash
+│   │   └── Hash.hpp
+│   ├── Heap
+│   │   └── Heap.hpp
+│   ├── LinearList
+│   │   ├── CircularDoubleLinkedList.hpp
+│   │   ├── CircularLinkedList.hpp
+│   │   ├── DoubleLinkedList.hpp
+│   │   ├── LinkedList.hpp
+│   │   ├── SequentialList.hpp
+│   │   └── StaticLinkedList.hpp
+│   ├── Queue
+│   │   ├── CircularDequeue.hpp
+│   │   ├── CircularQueue.hpp
+│   │   ├── ListDequeue.hpp
+│   │   └── ListQueue.hpp
+│   ├── Random
+│   │   └── Random.hpp
+│   ├── SelectionAlgorithms
+│   │   └── Selection.hpp
+│   ├── Set
+│   │   └── UnionFindSet.hpp
+│   ├── SortingAlgorithms
+│   │   └── Sorting.hpp
+│   ├── Stack
+│   │   ├── ListStack.hpp
+│   │   └── VectorStack.hpp
+│   ├── String
+│   │   └── String.hpp
+│   ├── Tree
+│   │   ├── AVLTree.hpp
+│   │   ├── BinarySearchTree.hpp
+│   │   ├── BinaryTree.hpp
+│   │   └── RedBlackTree.hpp
+│   └── main.cpp
+└── build/
+```
 
 ### 使用方法
 
