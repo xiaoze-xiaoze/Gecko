@@ -1,50 +1,153 @@
 # Gecko
 
-This is an educational data-structure library. I began writing it while learning data structures and modern C++ in parallel—an endeavour still in progress. The code therefore makes extensive use of recent C++ features such as `std::expected` and `std::function`, inevitably with some rough edges. Any clumsiness in design or style is owed to my limited experience; your indulgence is appreciated.
+[English](#english) | [中文](#chinese)
 
-这是一个用于学习的数据结构库，由于我在学习数据结构的同时，也在同步学习 C++，因此代码中尝试了大量 C++ 新特性（如 `std::expected` `std::function` 等），受限于个人经验，实现与风格难免生疏，尚祈海涵。
+<a name="english"></a>
+## 🦎 Gecko
 
-在这两个月时间里我确实发现了 c++ 的一些问题，"泛型 + 内联"本身可以可以提供零成本抽象是很好的一件事，但是 c++ 把 cpp 和 hpp 区分开，导致了一些很麻烦的问题，也造就了这是个 Header-only 仓库，因为我使用了大量的模板。Rust 有很好的解决这些问题，因此在后续的项目中我会考虑用 RUST 来写。
+Gecko is an educational data structure library written in modern C++23. It aims to provide clear, generic implementations of common data structures while leveraging recent C++ features like `std::expected` for error handling.
 
+### Features
+
+- **Modern C++**: Built with C++23 standards.
+- **Header-only**: Easy to integrate, just include the headers.
+- **Type-safe**: Extensive use of templates and strong typing.
+- **Error Handling**: Uses `std::expected` for robust error management without exceptions.
+
+### Requirements
+
+- A C++ compiler supporting C++23 (e.g., GCC 13+, Clang 16+, MSVC 19.36+).
+- CMake 3.16 or higher (for building tests/examples).
+
+### Project Structure
+
+The library is organized into the following modules in the `src` directory:
+
+- **LinearList**: `LinkedList`, `DoubleLinkedList`, `CircularLinkedList`, `SequentialList`, `StaticLinkedList`.
+- **Stack**: `ListStack`, `VectorStack`.
+- **Queue**: `CircularQueue`, `ListQueue`, `ListDequeue`, `CircularDequeue`.
+- **Tree**: `BinaryTree`, `BinarySearchTree`, `AVLTree`, `RedBlackTree`.
+- **Graph**: `AdjacencyMatrixGraph`.
+- **Set**: `UnionFindSet`.
+- **SortingAlgorithms**: Various sorting implementations.
+- **SelectionAlgorithms**: Selection algorithms.
+- **Hash**: Hash data structures.
+- **Heap**: Heap data structures.
+- **Random**: Random number utilities.
+- **String**: String algorithms.
+
+### Usage
+
+Since Gecko is a header-only library, you can simply include the relevant header files in your project.
+
+```cpp
+#include "LinearList/LinkedList.hpp"
+#include "Error/Error.hpp"
+#include <iostream>
+
+int main() {
+    LinkList<int> list;
+    
+    // Add elements
+    list.pushBack(10);
+    list.pushBack(20);
+
+    // Using C++23 std::expected for error handling
+    auto result = list.get(0);
+    if (result) {
+        std::cout << "Element at index 0: " << *result << std::endl;
+    } else {
+        std::cerr << "Error: " << error_message(result.error()) << std::endl;
+    }
+    
+    return 0;
+}
 ```
-Gecko
-├── CMakeLists.txt
-├── README.md
-├── build\
-├── tests\
-└── src\
-    ├── error\
-    │   └── error.hpp
-    ├── linear_list\
-    │   ├── circular_double_linked_list.hpp
-    │   ├── circular_linked_list.hpp
-    │   ├── double_linked_list.hpp
-    │   ├── linked_list.hpp
-    │   ├── sequential_list.hpp
-    │   └── static_linked_list.hpp
-    ├── queue\
-    │   ├── circular_dequeue.hpp
-    │   ├── circular_queue.hpp
-    │   ├── list_dequeue.hpp
-    │   └── list_queue.hpp
-    ├── stack\
-    │   ├── list_stack.hpp
-    │   └── vector_stack.hpp
-    ├── tree\
-    │   ├── avl_tree.hpp
-    │   ├── binary_search_tree.hpp
-    │   ├── binary_tree.hpp
-    │   └── red_black_tree.hpp
-    ├── graph\
-    │   └── adjacency_matrix_graph.hpp
-    ├── set\
-    │   └── union_find_set.hpp
-    ├── hash\
-    ├── sorting_algorithms\
-    │   └── sorting_algorithms.hpp
-    └── string\(empty)
-```
+
+### Build
+
+To build the project and run tests:
 
 ```bash
 git clone https://github.com/xiaoze-xiaoze/Gecko.git
+cd Gecko
+mkdir build && cd build
+cmake ..
+cmake --build .
+```
+
+---
+
+<a name="chinese"></a>
+## 🦎 Gecko (中文)
+
+Gecko 是一个使用现代 C++23 编写的教学用数据结构库。它的目标是在学习数据结构的同时，探索和实践现代 C++ 的新特性（如 `std::expected`），提供清晰、泛型的实现。
+
+### 特性
+
+- **现代 C++**: 基于 C++23 标准构建。
+- **Header-only**: 仅需包含头文件即可使用，无需编译库文件。
+- **类型安全**: 广泛使用模板和强类型系统。
+- **错误处理**: 使用 `std::expected` 进行健壮的错误管理，避免滥用异常。
+
+### 环境要求
+
+- 支持 C++23 的编译器 (如 GCC 13+, Clang 16+, MSVC 19.36+)。
+- CMake 3.16 或更高版本。
+
+### 项目结构
+
+本项目包含以下模块 (位于 `src` 目录下)：
+
+- **线性表 (LinearList)**: 单链表、双向链表、循环链表、顺序表、静态链表。
+- **栈 (Stack)**: 链栈、顺序栈。
+- **队列 (Queue)**: 循环队列、链队、双端队列、循环双端队列。
+- **树 (Tree)**: 二叉树、二叉搜索树、AVL树、红黑树。
+- **图 (Graph)**: 邻接矩阵图。
+- **集合 (Set)**: 并查集。
+- **排序 (SortingAlgorithms)**: 各种排序算法实现。
+- **选择 (SelectionAlgorithms)**: 选择算法。
+- **哈希 (Hash)**: 哈希相关数据结构。
+- **堆 (Heap)**: 堆数据结构。
+- **随机 (Random)**: 随机数工具。
+- **字符串 (String)**: 字符串算法。
+
+### 使用方法
+
+Gecko 是一个 Header-only 库，您只需将 `src` 目录下的头文件包含到您的项目中即可。
+
+```cpp
+#include "LinearList/LinkedList.hpp"
+#include "Error/Error.hpp"
+#include <iostream>
+
+int main() {
+    LinkList<int> list;
+    
+    // 添加元素
+    list.pushBack(10);
+    list.pushBack(20);
+
+    // 使用 C++23 std::expected 进行错误处理
+    auto result = list.get(0);
+    if (result) {
+        std::cout << "Element at index 0: " << *result << std::endl;
+    } else {
+        std::cerr << "Error: " << error_message(result.error()) << std::endl;
+    }
+    
+    return 0;
+}
+```
+
+### 构建
+
+构建项目及运行测试：
+
+```bash
+git clone https://github.com/xiaoze-xiaoze/Gecko.git
+cd Gecko
+mkdir build && cd build
+cmake ..
+cmake --build .
 ```
